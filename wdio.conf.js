@@ -17,7 +17,11 @@ exports.config = {
     // directory is where your package.json resides, so `wdio` will be called from there.
     //
     specs: [
-        './test/specs/**/*.js'
+        // './test/specs/**/*.js',
+        //'./test/specs/pixelPerfect.js',
+        //'./test/specs/searchItem.js',
+        './test/specs/shoppingCart.js'
+
     ],
     // Patterns to exclude.
     exclude: [
@@ -132,7 +136,8 @@ exports.config = {
     // See the full list at http://mochajs.org/
     mochaOpts: {
         ui: 'bdd',
-        timeout: 60000
+        timeout: (24 * 60 * 60 * 1000),
+        defaultTimeoutInterval: (24 * 60 * 60 * 1000)
     },
     //
     // =====
@@ -210,8 +215,9 @@ exports.config = {
     /**
      * Function to be executed after a test (in Mocha/Jasmine).
      */
-    // afterTest: function(test, context, { error, result, duration, passed, retries }) {
-    // },
+    afterTest: function(test, context, { error, result, duration, passed, retries }) {
+        browser.deleteCookies();
+    },
     /**
      * Hook that gets executed after the suite has ended
      * @param {Object} suite suite details
@@ -261,7 +267,9 @@ exports.config = {
     */
     //onReload: function(oldSessionId, newSessionId) {
     //}
+
     before: function (capabilities, specs) {
+        browser.maximizeWindow();
         // Import percySnapshot function
         const { percySnapshot } = require('@percy/webdriverio');
         // Make percySnapshot available as a global variable in all wdio tests

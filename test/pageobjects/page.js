@@ -11,7 +11,12 @@ module.exports = class Page {
         return browser.url(`http://automationpractice.com​/${path}`)
     }
 
-    // takePercySnapshot (name){
-    //      browser.percySnapshot(name, { widths: [1200, 800]});
-    // }
+    switchToIframe (iframeName){
+        browser.switchToFrame(iframeName)
+    }
+
+    maximizeWindow (){
+        browser.maximizeWindow();        
+    }
+
 }

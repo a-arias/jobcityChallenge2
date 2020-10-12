@@ -9,6 +9,8 @@ class LandingPage extends Page {
      */
     get searchInput () { return $('#search_query_top') }
     get buttonSearch () { return $('//*[@name="submit_search"]') }
+    get signInButton () { return $("a*=Log in to your customer account") }
+
 
     /**
      * This method is going to perform a search on the landing page
@@ -20,15 +22,24 @@ class LandingPage extends Page {
     }
 
     /**
+     * Clicks sing in button on the navbar page
+     */
+    clickSignInButton () {
+      this.signInButton.click(); 
+    }
+
+    deleteFirstItemFromShoppingCart(){
+        $("a[title='View my shopping cart']").moveTo();
+        $("a[title='remove this product from my cart']").waitForDisplayed();
+        $("a[title='remove this product from my cart']").click();
+    }
+
+    /**
      * Opens up the landing page 
      */
     open () {
         return super.open('/');
     }
-
-  //   takePercySnapshot (screenshot) {
-  //     return super.takePercySnapshot(screenshot);
-  // }
 }
 
 module.exports = new LandingPage();
