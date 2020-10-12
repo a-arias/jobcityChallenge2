@@ -54,6 +54,7 @@ describe('Search item functionality',  () =>{
       //const names = ['Blouse','Printed Dress','Printed Summer Dress','Printed Chiffon Dress'];
       var obj = {a: 'Printed Dress',b: 'Printed Summer Dress', c: 'Printed Chiffon Dress'};
 
+      //This is the keyword we are going to search
       const ItemToSearch = 'Blouse';
 
       //Opening the landing page.
@@ -69,7 +70,6 @@ describe('Search item functionality',  () =>{
 
       //Looping to the list of products names and  Assert these are not present on the page
       for (const prop in obj) {
-        //console.log(`obj.${prop} = ${obj[prop]}`);
         const result = $("h5[itemprop='name']").$(`a[title='${obj[prop]}']`);
 
         expect(result).not.toExist();
