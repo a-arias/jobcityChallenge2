@@ -13,8 +13,8 @@ class LandingPage extends Page {
 
 
     /**
-     * This method is going to perform a search on the landing page
-     * param: text to search for
+     * This method is going to perform a search on the landing page.
+     * @param  {String} text
      */
     SearchProduct (text) {
         this.searchInput.setValue(text);
@@ -22,20 +22,26 @@ class LandingPage extends Page {
     }
 
     /**
-     * Clicks sing in button on the navbar page
+     * Clicks sing in button on the navbar page.
      */
     clickSignInButton () {
       this.signInButton.click(); 
     }
 
     /**
-     * Deletes the first added item on the header shopping cart
+     * Deletes the first added item on the header shopping cart.
      */
     deleteFirstItemFromShoppingCart(){
+        //Hover over the shopping cart menu.
         $("a[title='View my shopping cart']").moveTo();
+        
+        //Wait for the remove button to be present on the page.
         $("a[title='remove this product from my cart']").waitForDisplayed();
+
+        //Clicks the remove button on the shopping cart header.
         $("a[title='remove this product from my cart']").click();
     }
+
     /**
      * Opens up the landing page 
      */

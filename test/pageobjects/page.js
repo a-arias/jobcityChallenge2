@@ -11,10 +11,17 @@ module.exports = class Page {
         return browser.url(`http://automationpractice.com​/${path}`)
     }
 
+    /**
+    * Switch to given Iframe ID
+    * @param iframeName IframeID
+    */
     switchToIframe (iframeName){
         browser.switchToFrame(iframeName)
     }
 
+    /**
+    * maximize the current window
+    */
     maximizeWindow (){
         browser.maximizeWindow();        
     }
