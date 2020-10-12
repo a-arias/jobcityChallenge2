@@ -4,7 +4,7 @@ const InformationPage = require('../pageobjects/InformationPageForProduct.page')
 const CheckoutPage = require('../pageobjects/checkout.page');
 
 describe('Search item functionality',  () =>{
-    it('should be able to search a product and then buy it', () =>{
+    xit('should be able to search a product and then buy it', () =>{
       //Opening the landing page.
       LandingPage.open();
       //Performing search of the product: Faded Short Sleeve T-shirts.
@@ -29,7 +29,7 @@ describe('Search item functionality',  () =>{
       expect(browser).toHaveTitle('Order confirmation - My Store')
     });
 
-    it('should be able add a product from category section and buy it', () =>{
+    xit('should be able add a product from category section and buy it', () =>{
       //Opening the landing page.
       LandingPage.open();
 
@@ -48,5 +48,31 @@ describe('Search item functionality',  () =>{
 
       //Asserting browser title has the order confimation text.
       expect(browser).toHaveTitle('Order confirmation - My Store')
+    });
+
+    it('should be able to search a product with a given item name and Products not containing the keyword should not display on results.', () =>{
+      //const names = ['Blouse','Printed Dress','Printed Summer Dress','Printed Chiffon Dress'];
+      var obj = {a: 'Printed Dress',b: 'Printed Summer Dress', c: 'Printed Chiffon Dress'};
+
+      const ItemToSearch = 'Blouse';
+
+      //Opening the landing page.
+      LandingPage.open();
+      //Performing search of the product: Faded Short Sleeve T-shirts.
+      LandingPage.SearchProduct(ItemToSearch);
+
+      //Obtaining the results list
+      const result = $("h5[itemprop='name']").$(`a[title='${ItemToSearch}']`);
+      
+      //Asserts the element searched text is the same as te results one text
+      expect(result).toHaveText(ItemToSearch);
+
+      //Looping to the list of products names and  Assert these are not present on the page
+      for (const prop in obj) {
+        //console.log(`obj.${prop} = ${obj[prop]}`);
+        const result = $("h5[itemprop='name']").$(`a[title='${obj[prop]}']`);
+
+        expect(result).not.toExist();
+      }
     });
 });
