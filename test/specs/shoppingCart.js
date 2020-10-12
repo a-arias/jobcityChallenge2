@@ -5,7 +5,7 @@ const CheckoutPage = require('../pageobjects/checkout.page');
 
 
 describe('Shopping Cart Functionality',  () =>{
-    xit('should be able to add an item to the cart and then reflect the product quantity ', () =>{
+    it('should be able to add an item to the cart and then reflect the product quantity ', () =>{
       LandingPage.open();
       LandingPage.SearchProduct('Faded Short Sleeve T-shirts');
 
@@ -18,7 +18,7 @@ describe('Shopping Cart Functionality',  () =>{
       expect(cartItemCount).toHaveText('1');
     });
 
-    xit('should be able to remove an item from the shopping cart summary', () =>{
+    it('should be able to remove an item from the shopping cart summary', () =>{
       LandingPage.open();
       LandingPage.SearchProduct('Faded Short Sleeve T-shirts');
 
@@ -44,8 +44,9 @@ describe('Shopping Cart Functionality',  () =>{
       LandingPage.open();
       LandingPage.deleteFirstItemFromShoppingCart();
 
-      const cartItemCount = $('p.cart_block_no_products');
-      expect(cartItemCount).toHaveText('No products');
+      CheckoutPage.open();
 
+      const itemsCount = $('p.alert-warning');
+      expect(itemsCount).toHaveText('Your shopping cart is empty.');
     });
 });

@@ -9,10 +9,8 @@ class CheckoutPage extends Page {
     get shippingCheckoutButton () { return $("div[id='center_column']").$("button[name='processCarrier']")}
     get payByCheckButton () { return $("a[title='Pay by check.']") }
     get confirmOrderButton () { return $("div[id='center_column']").$("button[type='submit']") }
-    //get itemToDelete () { return $("a[title='Delete']")}
 
     deleteItemFromCartSummary(elementIndex){
-      //this.itemToDelete.click();
       $$("a[title='Delete']")[elementIndex].click();
     }
 
@@ -34,6 +32,10 @@ class CheckoutPage extends Page {
 
       this.confirmOrderButton.click();
     }
+
+    open () {
+      return super.open('/index.php?controller=order');
+  }
 }
 
 module.exports = new CheckoutPage();

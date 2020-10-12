@@ -28,12 +28,14 @@ class LandingPage extends Page {
       this.signInButton.click(); 
     }
 
+    /**
+     * Deletes the first added item on the header shopping cart
+     */
     deleteFirstItemFromShoppingCart(){
         $("a[title='View my shopping cart']").moveTo();
         $("a[title='remove this product from my cart']").waitForDisplayed();
         $("a[title='remove this product from my cart']").click();
     }
-
     /**
      * Opens up the landing page 
      */
