@@ -1,6 +1,6 @@
 const LandingPage = require('../pageobjects/landing.page');
 
-describe('Pixel Perfect testing',  async function(){
+describe('Pixel Perfect Testing',  async function(){
     it('should display pixel-perfect on Chrome browser, viewport 1200px and above.', async function(){
       //Opening the landing page.
       LandingPage.open();

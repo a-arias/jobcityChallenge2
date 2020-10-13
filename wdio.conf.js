@@ -19,7 +19,7 @@ exports.config = {
     specs: [
         './test/specs/**/*.js',
         // './test/specs/pixelPerfect.js',
-        // './test/specs/searchItem.js',
+        //'./test/specs/searchItem.js',
         // './test/specs/shoppingCart.js'
 
     ],

@@ -4,7 +4,7 @@ const InformationPage = require('../pageobjects/InformationPageForProduct.page')
 const CheckoutPage = require('../pageobjects/checkout.page');
 
 describe('Search item functionality',  () =>{
-    xit('should be able to search a product and then buy it', () =>{
+    it('should be able to search a product and then buy it', () =>{
       //Opening the landing page.
       LandingPage.open();
       //Performing search of the product: Faded Short Sleeve T-shirts.
@@ -29,7 +29,7 @@ describe('Search item functionality',  () =>{
       expect(browser).toHaveTitle('Order confirmation - My Store')
     });
 
-    xit('should be able add a product from category section and buy it', () =>{
+    it('should be able add a product from category section and buy it', () =>{
       //Opening the landing page.
       LandingPage.open();
 

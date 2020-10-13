@@ -9,6 +9,7 @@ class SearchResultsPage extends Page {
     clickItemFromList (itemTitle) {
       return $("h5[itemprop='name']").$(`a[title='${itemTitle}']`).click();
     }
+
 }
 
 module.exports = new SearchResultsPage();
