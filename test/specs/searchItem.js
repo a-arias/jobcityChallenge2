@@ -38,6 +38,9 @@ describe('Search item functionality',  () =>{
       
       //Then we click the add to car button from the information page of the item we clicked on the previous step.
       InformationPage.clickAddToCarButton();
+
+      //Clicks Proceed To Checkout button from the information item page.
+      InformationPage.clickProceedToCheckout();
             
       //Then we click the proceed to checkout button from the information page of the item
       CheckoutPage.completeBuyOut();

@@ -18,11 +18,21 @@ exports.config = {
     //
     specs: [
         './test/specs/**/*.js',
-        // './test/specs/pixelPerfect.js',
+        //'./test/specs/pixelPerfect.js',
         //'./test/specs/searchItem.js',
-        // './test/specs/shoppingCart.js'
-
+        //'./test/specs/shoppingCart.js'
     ],
+    suites: {
+        pixelPerfect: [
+          './test/specs/pixelPerfect.js'
+        ],
+        search: [
+          './test/specs/searchItem.js'
+        ],
+        shoppingCart: [
+            './test/specs/shoppingCart.js'
+          ],
+    },
     // Patterns to exclude.
     exclude: [
         // 'path/to/excluded/files'
@@ -43,7 +53,7 @@ exports.config = {
     // and 30 processes will get spawned. The property handles how many capabilities
     // from the same test should run tests.
     //
-    maxInstances: 10,
+    maxInstances: 1,
     //
     // If you have trouble getting all important capabilities together, check out the
     // Sauce Labs platform configurator - a great tool to configure your capabilities:
