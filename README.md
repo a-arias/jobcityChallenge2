@@ -13,5 +13,8 @@ install node and NPM on mac,
 
 ## Run the tests
 This command is going to execute all the tests.
+`export PERCY_TOKEN=69d0599479fc54a39c3a246a44fc19666733c19d0dffe21a6f7ecce64ddd7495`
+
+This command is going to execute all of the tests.
 `percy exec -- ./node_modules/.bin/wdio wdio.conf.js`
 
