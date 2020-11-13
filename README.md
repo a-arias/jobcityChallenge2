@@ -2,7 +2,7 @@
 This is the automation framework for challenge2 of jobcity
 
 ## pre-requisites
-install node and NPM on mac,
+install node and NPM on mac.
 `https://treehouse.github.io/installation-guides/mac/node-mac.html` 
 
 ## clone the project
